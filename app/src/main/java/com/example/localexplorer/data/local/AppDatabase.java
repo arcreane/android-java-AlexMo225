@@ -1,0 +1,33 @@
+package com.example.localexplorer.data.local;
+
+import android.content.Context;
+
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
+import com.example.localexplorer.model.Restaurant;
+
+/**
+ * Base de données Room pour l'application
+ */
+@Database(entities = {Restaurant.class}, version = 1, exportSchema = false)
+public abstract class AppDatabase extends RoomDatabase {
+    
+    private static final String DATABASE_NAME = "local_explorer.db";
+    private static AppDatabase instance;
+    
+    public abstract RestaurantDao restaurantDao();
+    
+    public static synchronized AppDatabase getInstance(Context context) {
+        if (instance == null) {
+            instance = Room.databaseBuilder(
+                    context.getApplicationContext(),
+                    AppDatabase.class,
+                    DATABASE_NAME)
+                    .fallbackToDestructiveMigration()
+                    .build();
+        }
+        return instance;
+    }
+} 
