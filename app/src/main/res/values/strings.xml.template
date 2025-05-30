@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">LocalExplorer</string>
+    <string name="restaurant_image">Image du restaurant</string>
+    <string name="favorite">Favori</string>
+    <string name="search_hint">Rechercher un restaurant</string>
+    <string name="filter">Filtrer</string>
+    <string name="map">Carte</string>
+    <string name="list">Liste</string>
+    <string name="favorites">Favoris</string>
+    <string name="no_restaurants_found">Aucun restaurant trouvé à proximité</string>
+    <string name="error_loading_restaurants">Erreur lors du chargement des restaurants</string>
+    <string name="retry">Réessayer</string>
+    <string name="location_permission_required">La permission de localisation est nécessaire pour afficher les restaurants à proximité</string>
+    <string name="grant_permission">Accorder la permission</string>
+    <string name="open_settings">Paramètres</string>
+    <string name="distance_filter">Distance: %1$d m</string>
+    <string name="rating_filter">Note minimale: %1$.1f</string>
+    <string name="apply_filters">Appliquer</string>
+    <string name="reset_filters">Réinitialiser</string>
+    <string name="marseille_default">Utilisation des coordonnées de Paris par défaut</string>
+    <string name="directions">Itinéraire</string>
+    
+    <!-- Nouvelles chaînes pour le dialog de détails du restaurant -->
+    <string name="restaurant_details">Détails du restaurant</string>
+    <string name="close_dialog">Fermer</string>
+    <string name="address_label">Adresse</string>
+    <string name="coordinates_label">Coordonnées</string>
+    <string name="rating_label">Note</string>
+    <string name="view_on_map">Voir sur la carte</string>
+    <string name="lat_long_format">Lat: %1$.6f, Long: %2$.6f</string>
+    <string name="remove_favorite">Retirer des favoris</string>
+    <string name="phone_label">Téléphone</string>
+    <string name="website_label">Site web</string>
+    
+    <!-- Clés API -->
+    <string name="google_maps_api_key" translatable="false">VOTRE_CLE_GOOGLE_MAPS_ICI</string>
+</resources> 

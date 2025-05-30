@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Options de prix pour le spinner (ce que l'utilisateur voit) -->
+    <string-array name="price_options">
+        <item>Tous les prix</item>
+        <item>€ (Économique)</item>
+        <item>€€ (Moyen)</item>
+        <item>€€€ (Élevé)</item>
+    </string-array>
+    
+    <!-- Valeurs de prix correspondantes (ce qui est stocké) -->
+    <string-array name="price_values">
+        <item></item> <!-- Vide pour "Tous les prix" -->
+        <item>€</item>
+        <item>€€</item>
+        <item>€€€</item>
+    </string-array>
+</resources> 

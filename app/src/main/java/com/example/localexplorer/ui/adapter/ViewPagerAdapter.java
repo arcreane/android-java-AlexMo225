@@ -17,9 +17,18 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     private static final int MAP_TAB = 0;
     private static final int LIST_TAB = 1;
     private static final int FAVORITES_TAB = 2;
+    
+    // Fragments mis en cache pour éviter les recréations
+    private Fragment mapFragment;
+    private Fragment listFragment;
+    private Fragment favoritesFragment;
 
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
+        // Pré-initialiser les fragments
+        mapFragment = new MapFragment();
+        listFragment = new RestaurantListFragment();
+        favoritesFragment = RestaurantListFragment.newFavoriteInstance();
     }
 
     @NonNull
@@ -27,13 +36,13 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case MAP_TAB:
-                return new MapFragment();
+                return mapFragment;
             case LIST_TAB:
-                return new RestaurantListFragment();
+                return listFragment;
             case FAVORITES_TAB:
-                return RestaurantListFragment.newFavoriteInstance();
+                return favoritesFragment;
             default:
-                return new MapFragment();
+                return mapFragment;
         }
     }
 

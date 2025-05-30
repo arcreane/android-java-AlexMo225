@@ -13,3 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Fichier contenant les clés API
+/app/src/main/assets/api_keys.properties
+
+# Fichier strings.xml contenant la clé Google Maps
+# Notez que vous devrez créer un fichier strings.xml.template sans les clés réelles
+/app/src/main/res/values/strings.xml

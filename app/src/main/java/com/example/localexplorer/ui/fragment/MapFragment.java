@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.localexplorer.R;
 import com.example.localexplorer.model.Restaurant;
+import com.example.localexplorer.ui.dialog.RestaurantDetailsDialog;
 import com.example.localexplorer.viewmodel.RestaurantViewModel;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -37,7 +38,7 @@ import java.util.Map;
 /**
  * Fragment pour afficher les restaurants sur une carte
  */
-public class MapFragment extends Fragment implements OnMapReadyCallback {
+public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
     private static final float DEFAULT_ZOOM = 15f;
@@ -106,6 +107,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         map.getUiSettings().setZoomControlsEnabled(true);
         map.getUiSettings().setMyLocationButtonEnabled(false);
         map.setOnInfoWindowClickListener(this::onMarkerInfoWindowClick);
+        map.setOnMarkerClickListener(this);
 
         // Demander la localisation si la permission est accordée
         requestUserLocation();
@@ -176,16 +178,26 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private void onMarkerInfoWindowClick(Marker marker) {
         Restaurant restaurant = restaurantMarkers.get(marker.getId());
         if (restaurant != null) {
-            // Ouvrir Google Maps pour l'itinéraire
-            LatLng destination = new LatLng(restaurant.getLatitude(), restaurant.getLongitude());
-            LatLng origin = new LatLng(
-                    viewModel.getCurrentLatitude().getValue(),
-                    viewModel.getCurrentLongitude().getValue()
-            );
-
-            // TODO: Implémenter l'ouverture de Google Maps pour l'itinéraire
-            Toast.makeText(requireContext(), "Itinéraire vers " + restaurant.getName(), Toast.LENGTH_SHORT).show();
+            showRestaurantDetails(restaurant);
         }
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        Restaurant restaurant = restaurantMarkers.get(marker.getId());
+        if (restaurant != null) {
+            showRestaurantDetails(restaurant);
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Affiche les détails d'un restaurant dans une popup modale
+     */
+    private void showRestaurantDetails(Restaurant restaurant) {
+        RestaurantDetailsDialog dialog = RestaurantDetailsDialog.newInstance(restaurant);
+        dialog.show(getParentFragmentManager(), "RestaurantDetailsDialog");
     }
 
     @Override

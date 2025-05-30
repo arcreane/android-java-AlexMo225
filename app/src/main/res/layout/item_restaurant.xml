@@ -10,93 +10,210 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/restaurant_image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:contentDescription="@string/restaurant_image"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/restaurant_name"
-            android:layout_width="0dp"
+        <!-- Section principale (toujours visible) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="8dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/favorite_icon"
-            app:layout_constraintStart_toEndOf="@+id/restaurant_image"
-            app:layout_constraintTop_toTopOf="@+id/restaurant_image"
-            tools:text="Restaurant Name" />
-
-        <TextView
-            android:id="@+id/restaurant_address"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceBody2"
-            android:textColor="?android:attr/textColorSecondary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="@+id/restaurant_name"
-            app:layout_constraintStart_toStartOf="@+id/restaurant_name"
-            app:layout_constraintTop_toBottomOf="@+id/restaurant_name"
-            tools:text="123 Main Street, City" />
-
-        <TextView
-            android:id="@+id/restaurant_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/rounded_category_background"
-            android:paddingStart="8dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="8dp"
-            android:paddingBottom="2dp"
-            android:textAppearance="?attr/textAppearanceCaption"
-            android:textColor="@android:color/white"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/restaurant_address"
-            app:layout_constraintTop_toBottomOf="@+id/restaurant_address"
-            tools:text="Restaurant" />
-
-        <RatingBar
-            android:id="@+id/restaurant_rating"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:isIndicator="true"
-            android:numStars="5"
-            android:stepSize="0.1"
-            app:layout_constraintBottom_toBottomOf="@+id/restaurant_category"
-            app:layout_constraintStart_toEndOf="@+id/restaurant_category"
-            app:layout_constraintTop_toTopOf="@+id/restaurant_category"
-            tools:rating="4.5" />
-
-        <ImageView
-            android:id="@+id/favorite_icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:contentDescription="@string/favorite"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="12dp"
+            android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="?attr/colorPrimary"
-            tools:src="@drawable/ic_favorite_border" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/restaurant_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/restaurant_image"
+                android:scaleType="centerCrop"
+                android:background="@color/colorDivider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/restaurant_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/favorite_icon"
+                app:layout_constraintStart_toEndOf="@+id/restaurant_image"
+                app:layout_constraintTop_toTopOf="@+id/restaurant_image"
+                tools:text="Restaurant Name" />
+
+            <TextView
+                android:id="@+id/restaurant_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/restaurant_name"
+                app:layout_constraintStart_toStartOf="@+id/restaurant_name"
+                app:layout_constraintTop_toBottomOf="@+id/restaurant_name"
+                tools:text="123 Main Street, City" />
+
+            <TextView
+                android:id="@+id/restaurant_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_category_background"
+                android:paddingStart="8dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="2dp"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/restaurant_address"
+                app:layout_constraintTop_toBottomOf="@+id/restaurant_address"
+                tools:text="Restaurant" />
+
+            <RatingBar
+                android:id="@+id/restaurant_rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:stepSize="0.1"
+                app:layout_constraintBottom_toBottomOf="@+id/restaurant_category"
+                app:layout_constraintStart_toEndOf="@+id/restaurant_category"
+                app:layout_constraintTop_toTopOf="@+id/restaurant_category"
+                tools:rating="4.5" />
+
+            <ImageView
+                android:id="@+id/favorite_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/favorite"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="?attr/colorPrimary"
+                tools:src="@drawable/ic_favorite_border" />
+
+            <ImageView
+                android:id="@+id/expand_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/expand_collapse"
+                android:src="@drawable/ic_expand_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:tint="?android:attr/textColorSecondary" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Ligne de séparation -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorDivider"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/main_content"
+            tools:visibility="visible" />
+
+        <!-- Section dépliable (détails supplémentaires) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/expanded_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="visible">
+
+            <!-- Horaires d'ouverture -->
+            <TextView
+                android:id="@+id/hours_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/opening_hours_label"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceBody2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/hours_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hours_label"
+                tools:text="Lundi - Vendredi: 10h00 - 22h00\nSamedi - Dimanche: 11h00 - 23h00" />
+
+            <!-- Téléphone -->
+            <TextView
+                android:id="@+id/phone_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/phone_label"
+                android:textStyle="bold"
+                android:textAppearance="?attr/textAppearanceBody2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hours_text" />
+
+            <TextView
+                android:id="@+id/phone_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="?attr/textAppearanceBody2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone_label"
+                tools:text="+33 1 23 45 67 89" />
+
+            <!-- Boutons d'action -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/share_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/share_by_email"
+                app:icon="@android:drawable/ic_menu_send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone_text" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/directions_button"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/directions"
+                app:icon="@android:drawable/ic_menu_directions"
+                app:layout_constraintEnd_toStartOf="@id/share_button"
+                app:layout_constraintTop_toTopOf="@id/share_button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView> 

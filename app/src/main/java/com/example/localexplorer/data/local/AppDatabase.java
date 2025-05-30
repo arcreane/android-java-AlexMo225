@@ -11,7 +11,7 @@ import com.example.localexplorer.model.Restaurant;
 /**
  * Base de données Room pour l'application
  */
-@Database(entities = {Restaurant.class}, version = 1, exportSchema = false)
+@Database(entities = {Restaurant.class}, version = 3, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     
     private static final String DATABASE_NAME = "local_explorer.db";

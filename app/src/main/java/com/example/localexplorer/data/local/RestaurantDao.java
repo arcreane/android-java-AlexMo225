@@ -30,6 +30,9 @@ public interface RestaurantDao {
     @Query("SELECT * FROM restaurants WHERE isFavorite = 1")
     LiveData<List<Restaurant>> getAllFavorites();
     
+    @Query("SELECT * FROM restaurants WHERE isFavorite = 1")
+    List<Restaurant> getAllFavoritesSync();
+    
     @Query("SELECT * FROM restaurants WHERE id = :id")
     LiveData<Restaurant> getRestaurantById(String id);
     

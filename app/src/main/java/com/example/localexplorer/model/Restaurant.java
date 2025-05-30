@@ -4,11 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 /**
  * Classe modèle pour représenter un restaurant
  */
 @Entity(tableName = "restaurants")
-public class Restaurant {
+public class Restaurant implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     @PrimaryKey
     @NonNull
@@ -21,6 +25,11 @@ public class Restaurant {
     private String photoUrl;
     private String placeType;
     private boolean isFavorite;
+    private String openingHours;
+    private String priceLevel;
+    private String phoneNumber;
+    private String website;
+    private boolean isExpanded;
 
     public Restaurant(@NonNull String id, String name, String address, double latitude, double longitude, double rating, String photoUrl, String placeType) {
         this.id = id;
@@ -32,6 +41,11 @@ public class Restaurant {
         this.photoUrl = photoUrl;
         this.placeType = placeType;
         this.isFavorite = false;
+        this.openingHours = null;
+        this.priceLevel = null;
+        this.phoneNumber = null;
+        this.website = null;
+        this.isExpanded = false;
     }
 
     @NonNull
@@ -105,5 +119,58 @@ public class Restaurant {
 
     public void setFavorite(boolean favorite) {
         isFavorite = favorite;
+    }
+    
+    public String getOpeningHours() {
+        return openingHours;
+    }
+    
+    public void setOpeningHours(String openingHours) {
+        this.openingHours = openingHours;
+    }
+    
+    public String getPriceLevel() {
+        return priceLevel;
+    }
+    
+    public void setPriceLevel(String priceLevel) {
+        this.priceLevel = priceLevel;
+    }
+    
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+    
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    
+    public String getWebsite() {
+        return website;
+    }
+    
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+    
+    /**
+     * Vérifie si l'élément est déplié dans la liste
+     */
+    public boolean isExpanded() {
+        return isExpanded;
+    }
+    
+    /**
+     * Définit l'état d'expansion de l'élément dans la liste
+     */
+    public void setExpanded(boolean expanded) {
+        isExpanded = expanded;
+    }
+    
+    /**
+     * Bascule l'état d'expansion
+     */
+    public void toggleExpanded() {
+        isExpanded = !isExpanded;
     }
 } 

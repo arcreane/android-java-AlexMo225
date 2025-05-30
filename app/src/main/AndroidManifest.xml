@@ -16,12 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Localexplorer"
+        android:name=".LocalExplorerApplication"
         tools:targetApi="31">
 
         <!-- Clé API Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCBSa3bwSTwXiGAVGwDtLm5_YIbBEtChE8" />
+            android:value="@string/google_maps_api_key" />
 
         <activity
             android:name=".MainActivity"

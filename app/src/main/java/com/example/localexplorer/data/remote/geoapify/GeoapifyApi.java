@@ -17,4 +17,7 @@ public interface GeoapifyApi {
             @Query("limit") int limit,
             @Query("apiKey") String apiKey
     );
+    
+    // La méthode getPlaceDetails a été supprimée car elle n'était pas utilisée
+    // L'application utilise PlaceDetailsService pour récupérer les détails des restaurants
 } 
